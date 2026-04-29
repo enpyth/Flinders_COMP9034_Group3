@@ -33,6 +33,9 @@ async function bootstrap() {
   });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === `file://${process.argv[1]}` || 
+  import.meta.url.endsWith('/src/index.ts') ||
+  import.meta.url.endsWith('/src/index.ts/')
+) {
   void bootstrap();
 }
